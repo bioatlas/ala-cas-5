@@ -145,7 +145,7 @@ class GithubAttributeParser(val userAttributes: Map<String, Any>) : AttributePar
             val url = URL(urlStr)
             conn = url.openConnection() as HttpURLConnection
             conn.requestMethod = "GET"
-            var authHeader = "token " + githubAccessToken
+            val authHeader = "token $githubAccessToken"
             conn.setRequestProperty("Authorization", authHeader)
 
             reader = BufferedReader(InputStreamReader(conn.inputStream, Charsets.UTF_8)) // assume utf-8
